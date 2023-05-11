@@ -1,8 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const User = require("../controllers/userController");
+const auth = require("../controllers/authController");
+const authorization = require("../middlewares/authorization");
 
-router.post("/user", User.CreateUser);
+router.post('/login', auth.SignIn);
+
+router.post("/user", authorization.isAdmin, User.CreateUser);
 
 router.get("/users", User.GetAllUsers);
 
