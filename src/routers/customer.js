@@ -12,3 +12,5 @@ router.get('/customer/:id', authorization.isAdmin, customer.GetCustomerById);
 router.patch('/customers/:id', authorization.isAdmin, customer.UpdateCustomer);
 
 router.get('/customers/:id', authorization.isAdmin, customer.DeleteCustomer);
+
+module.exports = router;
